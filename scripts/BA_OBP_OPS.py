@@ -34,5 +34,5 @@ filtered_df['OPS'] = filtered_df['OBP'] + filtered_df['SLG']
 
 print(filtered_df)
 
-# export df with batting average and OPS to csv
-filtered_df.to_csv('2012_200AB.csv', index=False)
+# export df with batting average, OBP, SLG, and OPS to csv
+filtered_df.to_csv('2012_Batters.csv', index=False)
