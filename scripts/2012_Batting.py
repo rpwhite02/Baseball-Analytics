@@ -31,6 +31,7 @@ filtered_df['SLG'] = filtered_df['SLG'].round(3)
 
 # add OBP and SLG to create OPS
 filtered_df['OPS'] = filtered_df['OBP'] + filtered_df['SLG']
+filtered_df['OPS'] = filtered_df['OPS'].round(3)
 
 print(filtered_df)
 
