@@ -14,10 +14,22 @@ filtered_df['IP'] = filtered_df['IP'].round(2)
 
 # calculate WHIP without IBB
 filtered_df['WHIP'] = (filtered_df['H'] + filtered_df['BB']) / filtered_df['IP']
-filtered_df['WHIP'] = filtered_df['WHIP'].round(3)
+filtered_df['WHIP'] = filtered_df['WHIP'].round(2)
 
 # calculate K/9
 filtered_df['K/9'] = (filtered_df['SO'] * 9) / filtered_df['IP']
 filtered_df['K/9'] = filtered_df['K/9'].round(2)
 
-print(filtered_df)
+# calculate BB/9
+filtered_df['BB/9'] = (filtered_df['BB'] * 9) / filtered_df['IP']
+filtered_df['BB/9'] = filtered_df['BB/9'].round(2)
+
+# calculate HR/9
+filtered_df['HR/9'] = (filtered_df['HR'] * 9) / filtered_df['IP']
+filtered_df['HR/9'] = filtered_df['HR/9'].round(2)
+
+# calculate K percentage
+filtered_df['KPct'] = filtered_df['SO'] / filtered_df['BB']
+filtered_df['KPct'] = filtered_df['KPct'].round(2)
+
+filtered_df.to_csv('2012_Pitchers.csv', index=False)
