@@ -2,7 +2,7 @@ import pandas as pd
 
 pitching_df = pd.read_csv('csvs/Pitching.csv')
 
-# calculate innings pitched because outs pitched is stupid idk why they did that
+# calculate innings pitched because outs pitched is fucking stupid idk why they did that
 pitching_df['IP'] = pitching_df['IPouts'] / 3
 
 # include only the year 2012
