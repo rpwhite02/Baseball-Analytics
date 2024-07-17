@@ -33,3 +33,13 @@ filtered_df['KPct'] = filtered_df['SO'] / filtered_df['BB']
 filtered_df['KPct'] = filtered_df['KPct'].round(2)
 
 filtered_df.to_csv('2012_Pitchers.csv', index=False)
+
+# separate pitchers into relievers and starters based on innings and games started
+
+relievers = filtered_df[(filtered_df['IP'] <= 80 ) & (filtered_df['G'] > 10)]
+
+starters = filtered_df[(filtered_df['IP'] >= 100) & (filtered_df['GS'] > 15)]
+
+relievers.to_csv('2012_Relievers.csv', index=False)
+
+starters.to_csv('2012_Starters.csv', index=False)
