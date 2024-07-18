@@ -56,6 +56,6 @@ def team_stat_starters(dataframe):
     st.plotly_chart(fig)
 
     st.write('Data Table:')
-    st.write(dataframe)
+    st.write(team_means)
 
 #team_stat_starters(starters)
