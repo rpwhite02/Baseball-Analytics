@@ -52,4 +52,4 @@ def hr_scatter(dataframe):
     st.write('Data Table:')
     st.write(dataframe)
 
-hr_scatter(top10_hr)
+#hr_scatter(top10_hr)

@@ -58,4 +58,4 @@ def team_stat_starters(dataframe):
     st.write('Data Table:')
     st.write(dataframe)
 
-team_stat_starters(starters)
+#team_stat_starters(starters)
