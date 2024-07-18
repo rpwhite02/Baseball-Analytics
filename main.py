@@ -1,7 +1,8 @@
 import streamlit as st
 import pandas as pd
-from batting_viz import hr_scatter
-from pitching_viz import team_stat_starters
+from scripts import batting_viz, pitching_viz
+from scripts.batting_viz import hr_scatter
+from scripts.pitching_viz import team_stat_starters
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
