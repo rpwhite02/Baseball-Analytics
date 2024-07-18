@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 from batting_viz import hr_scatter
-from pitching_viz import team_era_starters
+from pitching_viz import team_stat_starters
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
@@ -18,7 +18,7 @@ def main():
     hr_scatter(top10_hr)
 
     st.header("Module 2 Output")
-    team_era_starters()
+    team_stat_starters(starters)
 
 if __name__ == "__main__":
     main()

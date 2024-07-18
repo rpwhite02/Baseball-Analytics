@@ -47,7 +47,7 @@ def hr_scatter(dataframe):
 
     fig.update_traces(marker=dict(size=15))  # Set all points to a constant size of 10
 
-    st.write(fig)
+    st.plotly_chart(fig)
 
     st.write('Data Table:')
     st.write(dataframe)
