@@ -11,7 +11,6 @@ top5_hr = data.nlargest(5, 'HR')
 top10_hr = data.nlargest(10, 'HR')
 
 def hr_scatter(dataframe):
-    st.header('Comparing the Top 10 Home Run Hitters Offensive Stats')
 
     # Creating the scatter plot with Plotly
     fig = px.scatter(

@@ -16,9 +16,9 @@ starters = pd.read_csv('cleaned_csvs/2012_Starters.csv')
 def team_stat_starters(dataframe):
 
     st.header('')
+
     # group data by teamID
     # calculate team ERA, WHIP, K/9, BB/9, HR/9, and K%
-    
     statistics = ['ERA', 'WHIP', 'K/9', 'BB/9', 'HR/9', 'KPct']
 
     team_means = dataframe.groupby(['teamID', 'lgID'])[statistics].mean().round(3).reset_index()

@@ -15,10 +15,10 @@ starters = pd.read_csv('cleaned_csvs/2012_Starters.csv')
 def main():
     st.title("Visualizing Baseball Trends and Insights")
 
-    st.header("Module 1 Output")
+    st.header("Top 10 Homerun Hitters in 2012 and Their Offensive Stats")
     hr_scatter(top10_hr)
 
-    st.header("Module 2 Output")
+    st.header("ERA and Other Pitching Stats in 2012 by Team")
     team_stat_starters(starters)
 
 if __name__ == "__main__":
