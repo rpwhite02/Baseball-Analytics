@@ -5,6 +5,8 @@ from scripts.pitching_viz import team_stat_starters
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
+### EDIT TEXT USING MARKDOWN, STREAMLIT FORMATS LOOK LIKE SHIT
+
 def home():
     st.title("Analyzing Baseball Trends and Insights")
 
@@ -34,3 +36,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+### KEEP RESEARCHING BETTER METHODS THIS FILE LOOKS LIKE SHIT
