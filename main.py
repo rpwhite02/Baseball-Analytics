@@ -16,7 +16,7 @@ def batting():
     hr_scatter(top10_hr)
 
 def pitching():
-    st.header("Top 10 Homerun Hitters in 2012 and Their Offensive Stats")
+    st.header("Team Pitching Stats")
 
     starters = pd.read_csv('data/cleaned_csvs/2012_Starters.csv')
     team_stat_starters(starters)
@@ -31,6 +31,6 @@ def main():
         batting()
     elif selection == "Pitching Visualizations":
         pitching()
-        
+
 if __name__ == "__main__":
     main()
