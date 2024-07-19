@@ -9,6 +9,16 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 def home():
     st.title("Analyzing Baseball Trends and Insights")
+    st.write("""
+    ## Introduction
+    This project provides an in-depth analysis of baseball statistics, including interactive visualizations and machine learning predictions
+    to derive meaningful insights.
+    
+    ### Pages
+    - **Batting Visualization**: Explore interactive charts that visualize offensive stats, focusing on individual players. Created using Plotly.
+    - **Pitching Visualization**: View key pitching statistics such as ERA and strikeout rate, highlighting team performance. Also created with Plotly.
+    """)
+
 
 def batting():
     st.header("Top 10 Homerun Hitters in 2012 and Their Offensive Stats")
