@@ -4,7 +4,7 @@ import streamlit as st
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-data = pd.read_csv('cleaned_csvs/2012_Batters.csv')
+data = pd.read_csv('data/cleaned_csvs/2012_Batters.csv')
 
 top5_hr = data.nlargest(5, 'HR')
 

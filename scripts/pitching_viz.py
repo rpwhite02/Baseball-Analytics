@@ -8,9 +8,9 @@ import streamlit as st
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-relievers = pd.read_csv('cleaned_csvs/2012_Relievers.csv')
+relievers = pd.read_csv('data/cleaned_csvs/2012_Relievers.csv')
 
-starters = pd.read_csv('cleaned_csvs/2012_Starters.csv')
+starters = pd.read_csv('data/cleaned_csvs/2012_Starters.csv')
 
 
 def team_stat_starters(dataframe):
