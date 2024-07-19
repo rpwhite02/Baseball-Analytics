@@ -1,20 +1,36 @@
 import streamlit as st
-from pages import home, batting, pitching
+import pandas as pd
+from scripts.batting_viz import hr_scatter
+from scripts.pitching_viz import team_stat_starters
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-PAGES = {
-    "Home": home,
-    "Batting Visualizations": batting,
-    "Pitching Visualizations": pitching
-}
+def home():
+    st.title("Analyzing Baseball Trends and Insights")
+
+def batting():
+    st.header("Top 10 Homerun Hitters in 2012 and Their Offensive Stats")
+
+    batters = pd.read_csv('data/cleaned_csvs/2012_Batters.csv')
+    top10_hr = batters.nlargest(10, 'HR')
+    hr_scatter(top10_hr)
+
+def pitching():
+    st.header("Top 10 Homerun Hitters in 2012 and Their Offensive Stats")
+
+    starters = pd.read_csv('data/cleaned_csvs/2012_Starters.csv')
+    team_stat_starters(starters)
 
 def main():
-    st.sidebar.title("Navigation")
-    selection = st.sidebar.radio("Go to", list(PAGES.keys()))
+    st.sidebar.title('Navigation')
+    selection = st.sidebar.radio("Go to", ["Home", "Batting Visualizations", "Pitching Visualizations"])
 
-    page = PAGES[selection]
-    page.app()
-
+    if selection == "Home":
+        home()
+    elif selection == "Batting Visualizations":
+        batting()
+    elif selection == "Pitching Visualizations":
+        pitching()
+        
 if __name__ == "__main__":
     main()
