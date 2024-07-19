@@ -15,11 +15,11 @@ starters = pd.read_csv('cleaned_csvs/2012_Starters.csv')
 # Define each page as a function
 def home_page():
     st.title("Analyzing Baseball Trends and Insights")
-    st.write("Welcome to the Home page! Use the sidebar to navigate to different parts of the analysis.")
-    st.write("Batting Visualization contains interactive charts that visualize offensive stats, focusing on both indidivual players"
+    st.header("Welcome to the Home page! Use the sidebar to navigate to different parts of the analysis.")
+    st.subheader("Batting Visualization contains interactive charts that visualize offensive stats, focusing on both indidivual players"
              " and entire teams. They're built using Plotly.")
     st.image("images/top10_hr.png", caption="Batting Visualization Example", use_column_width=True)
-    st.write("Pitching Visualization contains interactive charts that visualize pitching stats for starting pitchers, relief pitchers,"
+    st.subheader("Pitching Visualization contains interactive charts that visualize pitching stats for starting pitchers, relief pitchers,"
              " and entire team stats. The visualizations are also built using Plotly.")
     st.image("images/team_era.png", caption="Pitching Visualization Example", use_column_width=True)
 
