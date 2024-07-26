@@ -6,8 +6,6 @@ import streamlit as st
 
 # also separate starting pitchers and closing pitchers
 
-# st.set_option('deprecation.showPyplotGlobalUse', False)
-
 relievers = pd.read_csv('data/cleaned_csvs/2012_Relievers.csv')
 
 starters = pd.read_csv('data/cleaned_csvs/2012_Starters.csv')
