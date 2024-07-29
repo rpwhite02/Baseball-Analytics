@@ -29,5 +29,14 @@ filtered_df['CatcherStealPct'] = filtered_df['CatcherStealPct'].round(3)
 
 filtered_df = pd.merge(filtered_df, names, on='playerID', how='left')
 
+# assign player name column to move to front of dataframe 
+column_to_move = filtered_df.pop('PlayerName')
+
+# Insert the column at the first position
+filtered_df.insert(0, 'PlayerName', column_to_move)
+
+# remove playerID
+filtered_df.pop('playerID')
+
 # export df with fielding percentage and catcher stolen base percent
 filtered_df.to_csv('2012_Fielders.csv', index=False)

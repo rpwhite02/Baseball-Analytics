@@ -38,5 +38,14 @@ filtered_df['OPS'] = filtered_df['OPS'].round(3)
 # merge dataframes so our batting dataframe includes player names rather than only player IDs
 filtered_df = pd.merge(filtered_df, names, on='playerID', how='left')
 
+# assign player name column to move to front of dataframe 
+column_to_move = filtered_df.pop('PlayerName')
+
+# Insert the column at the first position
+filtered_df.insert(0, 'PlayerName', column_to_move)
+
+# remove playerID
+filtered_df.pop('playerID')
+
 # export df with batting average, OBP, SLG, and OPS to csv
 filtered_df.to_csv('2012_Batters.csv', index=False)

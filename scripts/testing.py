@@ -18,7 +18,7 @@ def hr_scatter(dataframe):
 
     x = dataframe['G']
     y = dataframe['HR']
-    labels = dataframe['playerID']
+    labels = dataframe['PlayerName']
 
     fig, ax = plt.subplots()
     ax.scatter(x, y)
@@ -77,7 +77,7 @@ def team_stat_starters(dataframe):
 def scatter_matrix(batting_df, fielding_df):
     
     # filter the fielding dataframe to only include fielding percentage, all we really care about
-    fielding_selected = fielding_df[['playerID', 'FieldingPct', 'E']]
+    fielding_selected = fielding_df[['PlayerName', 'FieldingPct', 'E']]
 
     dataframe = pd.merge(batting_df, fielding_selected, on='playerID')
 

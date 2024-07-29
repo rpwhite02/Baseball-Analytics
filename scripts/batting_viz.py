@@ -4,17 +4,12 @@ import streamlit as st
 
 
 
-def scatter_matrix(batting_df, fielding_df):
+def scatter_matrix(dataframe):
     
-    # filter the fielding dataframe to only include fielding percentage, all we really care about
-    fielding_selected = fielding_df[['playerID', 'FieldingPct', 'E']]
-
-    dataframe = pd.merge(batting_df, fielding_selected, on='playerID')
-
     fig = px.scatter_matrix(dataframe,
     dimensions=["BattingAvg", "OBP", "SLG", "OPS"],
     title="Scatter Matrix of Batting Average and Fielding Percentage of Players in 2012",
-    hover_data={'playerID': True},
+    hover_data={'PlayerName': True},
     labels={}) 
     
     fig.update_traces(diagonal_visible=False)
@@ -31,14 +26,14 @@ def hr_scatter(dataframe):
         x='G',
         y='HR',
         color='lgID',
-        hover_name='playerID',
+        hover_name='PlayerName',
         hover_data={
             'G': True,
             'HR': True,
             'BattingAvg': True,
             'OBP': True,
             'OPS': True,
-            'playerID': False
+            'PlayerName': False
         },
         labels={
             'G': 'Games Played',

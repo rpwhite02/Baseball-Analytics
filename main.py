@@ -35,14 +35,13 @@ def batting():
     # Talk about the data a little bit, such as year, how things were calculated, etc.
 
     batters = pd.read_csv('data/cleaned_csvs/2012_Batters.csv')
-    fielders = pd.read_csv('data/cleaned_csvs/2012_Fielders.csv')
     top10_hr = batters.nlargest(10, 'HR')
 
     st.header('Batting Data Table')
     st.write(batters)
 
     st.header('Scatter Matrix of Batting Average and Fielding Percentage of Players in 2012')
-    scatter_matrix(batters, fielders)
+    scatter_matrix(batters)
 
     # Talk about correlations between the scatter plots
 
@@ -62,6 +61,8 @@ def pitching():
     # Talk about correlations between different team pitching stats, compare them to real life like how many runs
     # each team gave up during the season, Remember to distinguish that it's all starting pitchers so that could lead to findings
     # like a signal of a weak bullpen.
+
+### def fielding(): FIELDING DATA NOT SURE WHAT TO DISPLAY YET
 
 def main():
     st.sidebar.title('Navigation')

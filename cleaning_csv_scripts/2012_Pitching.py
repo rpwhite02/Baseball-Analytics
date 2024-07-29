@@ -36,6 +36,15 @@ filtered_df['KPct'] = filtered_df['KPct'].round(2)
 
 filtered_df = pd.merge(filtered_df, names, on='playerID', how='left')
 
+# assign player name column to move to front of dataframe 
+column_to_move = filtered_df.pop('PlayerName')
+
+# Insert the column at the first position
+filtered_df.insert(0, 'PlayerName', column_to_move)
+
+# remove playerID
+filtered_df.pop('playerID')
+
 filtered_df.to_csv('2012_Pitchers.csv', index=False)
 
 # separate pitchers into relievers and starters based on innings and games started
