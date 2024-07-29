@@ -17,13 +17,13 @@ def home():
     
     ### Pages
     
-    #### Batting Visualization
+    #### Batting Analysis
 
     - **Interactive Charts**: Visualize offensive stats such as batting average, OPS, hone runs, etc.
     - **Player Analysis**: Focus on individual player performance and trends over time.
     - **Advanced Metrics**: Gain insights into advanced batting metrics and their implications.
              
-    #### Pitching Visualization
+    #### Pitching Analysis
              
     - **Key Statistics**: Examine pitching stats like ERA, strikeout rates, and WHIP.
     - **Team and Individual Performance**: Analyze how different teams perform on the mound.
@@ -65,13 +65,13 @@ def pitching():
 
 def main():
     st.sidebar.title('Navigation')
-    selection = st.sidebar.radio("Go to", ["Home", "Batting Visualizations", "Pitching Visualizations"])
+    selection = st.sidebar.radio("Go to", ["Home", "Batting Analysis", "Pitching Analysis"])
 
     if selection == "Home":
         home()
-    elif selection == "Batting Visualizations":
+    elif selection == "Batting Analysis":
         batting()
-    elif selection == "Pitching Visualizations":
+    elif selection == "Pitching Analysis":
         pitching()
 
 if __name__ == "__main__":

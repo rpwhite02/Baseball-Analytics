@@ -29,7 +29,7 @@ filtered_df['HR/9'] = (filtered_df['HR'] * 9) / filtered_df['IP']
 filtered_df['HR/9'] = filtered_df['HR/9'].round(2)
 
 # calculate K percentage
-filtered_df['KPct'] = filtered_df['SO'] / filtered_df['BB']
+filtered_df['KPct'] = (filtered_df['SO'] / filtered_df['BFP']) * 100
 filtered_df['KPct'] = filtered_df['KPct'].round(2)
 
 filtered_df.to_csv('2012_Pitchers.csv', index=False)
