@@ -55,5 +55,3 @@ def team_stat_starters(dataframe):
 
     st.write('Data Table:')
     st.write(team_means)
-
-#team_stat_starters(starters)
