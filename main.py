@@ -16,15 +16,15 @@ def home():
     
     ### Pages
     
-    ###Batting Visualization###
-        - **Interactive Charts**: Visualize offensive stats such as batting average, OPS, hone runs, etc.
-        - **Player Analysis**: Focus on individual player performance and trends over time.
-        - **Advanced Metrics**: Gain insights into advanced batting metrics and their implications.
+        ###Batting Visualization
+            - **Interactive Charts**: Visualize offensive stats such as batting average, OPS, hone runs, etc.
+            - **Player Analysis**: Focus on individual player performance and trends over time.
+            - **Advanced Metrics**: Gain insights into advanced batting metrics and their implications.
              
-    ###Pitching Visualization###
-        - Key Statistics: Examine pitching stats like ERA, strikeout rates, and WHIP.
-        - **Team and Individual Performance**: Analyze how different teams perform on the mound.
-        - **Comparative Analysis**: Compare pitchers across various metrics to identify top performers.
+        ###Pitching Visualization
+            - Key Statistics: Examine pitching stats like ERA, strikeout rates, and WHIP.
+            - **Team and Individual Performance**: Analyze how different teams perform on the mound.
+            - **Comparative Analysis**: Compare pitchers across various metrics to identify top performers.
     """)
     
 
