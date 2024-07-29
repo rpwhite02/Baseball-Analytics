@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from scripts.batting_viz import hr_scatter
+from scripts.batting_viz import hr_scatter, scatter_matrix
 from scripts.pitching_viz import team_stat_starters
 
 ### EDIT TEXT USING MARKDOWN, STREAMLIT FORMATS LOOK LIKE SHIT
@@ -21,14 +21,22 @@ def home():
 
 
 def batting():
-    st.header("Top 10 Homerun Hitters in 2012 and Their Offensive Stats")
-
     batters = pd.read_csv('data/cleaned_csvs/2012_Batters.csv')
+
+    fielders = pd.read_csv('data/cleaned_csvs/2012_Fielders.csv')
+
     top10_hr = batters.nlargest(10, 'HR')
+
+    st.header('Scatter Matrix of Batting Average and Fielding Percentage of Players in 2012')
+
+    scatter_matrix(batters, fielders)
+
+    st.header('Top 10 Homerun Hitters in 2012 and Their Offensive Stats')
+
     hr_scatter(top10_hr)
 
 def pitching():
-    st.header("Team Pitching Stats")
+    st.header('Team Pitching Stats')
 
     starters = pd.read_csv('data/cleaned_csvs/2012_Starters.csv')
     team_stat_starters(starters)
