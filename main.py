@@ -12,7 +12,8 @@ def home():
     st.write("""
     ## Introduction
     This project provides an in-depth analysis of baseball statistics, including interactive visualizations and machine learning predictions
-    to derive meaningful insights.
+    to derive meaningful insights. I use batting, pitching, and fielding data from the 2012 season that can be found
+    [here](https://www.kaggle.com/datasets/open-source-sports/baseball-databank/data?select=Teams.csv)
     
     ### Pages
     
