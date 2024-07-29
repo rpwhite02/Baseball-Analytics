@@ -15,10 +15,7 @@ def scatter_matrix(batting_df, fielding_df):
     dimensions=["BattingAvg", "OBP", "SLG", "OPS"],
     title="Scatter Matrix of Batting Average and Fielding Percentage of Players in 2012",
     hover_data={'playerID': True},
-    labels={'BattingAvg': 'Batting Average',
-            'OBP': 'On-Base Percentage',
-            'OPS': 'On-Base Plus Slugging',
-            'SLG': 'Slugging Percentage'}) 
+    labels={}) 
     
     fig.update_traces(diagonal_visible=False)
 
