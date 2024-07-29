@@ -15,12 +15,22 @@ def home():
     to derive meaningful insights.
     
     ### Pages
-    - **Batting Visualization**: Explore interactive charts that visualize offensive stats, focusing on individual players. Created using Plotly.
-    - **Pitching Visualization**: View key pitching statistics such as ERA and strikeout rate, highlighting team performance. Also created with Plotly.
+    
+    ###Batting Visualization###
+        - **Interactive Charts**: Visualize offensive stats such as batting average, OPS, hone runs, etc.
+        - **Player Analysis**: Focus on individual player performance and trends over time.
+        - **Advanced Metrics**: Gain insights into advanced batting metrics and their implications.
+             
+    ###Pitching Visualization###
+        - Key Statistics: Examine pitching stats like ERA, strikeout rates, and WHIP.
+        - **Team and Individual Performance**: Analyze how different teams perform on the mound.
+        - **Comparative Analysis**: Compare pitchers across various metrics to identify top performers.
     """)
-
+    
 
 def batting():
+    # Talk about the data a little bit, such as year, how things were calculated, etc.
+
     batters = pd.read_csv('data/cleaned_csvs/2012_Batters.csv')
     fielders = pd.read_csv('data/cleaned_csvs/2012_Fielders.csv')
     top10_hr = batters.nlargest(10, 'HR')
@@ -39,6 +49,8 @@ def batting():
     # Talk about the different batters listed, how homerun count can correlate with other offensive stats
 
 def pitching():
+    # Talk about the data a little bit, such as year, how things were calculated, etc.
+
     starters = pd.read_csv('data/cleaned_csvs/2012_Starters.csv')
 
     st.header('Team Pitching Stats')
