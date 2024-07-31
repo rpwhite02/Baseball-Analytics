@@ -1,6 +1,6 @@
 import pandas as pd
 
-pitcher_names = pd.read_csv('data/csvs/pitch_data_names.csv')
+pitcher_names = pd.read_csv('data/raw_csvs/pitch_data_names.csv')
 
 pitcher_names['PlayerName'] = pitcher_names['first_name'] + ' ' + pitcher_names['last_name']
 

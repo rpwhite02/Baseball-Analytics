@@ -1,8 +1,8 @@
 import pandas as pd
 
-fielding_df = pd.read_csv('data/csvs/Fielding.csv')
+fielding_df = pd.read_csv('data/raw_csvs/Fielding.csv')
 
-names = pd.read_csv('data/csvs/Names.csv')
+names = pd.read_csv('data/raw_csvs/Names.csv')
 
 # filter the data to include only data from 2012
 filtered_df = fielding_df[fielding_df['yearID'] == 2012]

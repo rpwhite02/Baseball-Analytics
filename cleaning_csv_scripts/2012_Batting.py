@@ -1,9 +1,9 @@
 import pandas as pd
 
 # import batting data
-batting_df = pd.read_csv('data/csvs/Batting.csv')
+batting_df = pd.read_csv('data/raw_csvs/Batting.csv')
 
-names = pd.read_csv('data/csvs/Names.csv')
+names = pd.read_csv('data/raw_csvs/Names.csv')
 
 # filter the data to include only the year 2012
 filtered_df = batting_df[batting_df['yearID'] == 2012]

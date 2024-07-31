@@ -34,7 +34,7 @@ def home():
 def batting():
     # Talk about the data a little bit, such as year, how things were calculated, etc.
 
-    batters = pd.read_csv('data/cleaned_csvs/2012_Batters.csv')
+    batters = pd.read_csv('data/2012_csvs/2012_Batters.csv')
     top10_hr = batters.nlargest(10, 'HR')
 
     st.header('Batting Data Table')
@@ -53,7 +53,7 @@ def batting():
 def pitching():
     # Talk about the data a little bit, such as year, how things were calculated, etc.
 
-    starters = pd.read_csv('data/cleaned_csvs/2012_Starters.csv')
+    starters = pd.read_csv('data/2012_csvs/2012_Starters.csv')
 
     st.header('Team Pitching Stats')
     team_stat_starters(starters)

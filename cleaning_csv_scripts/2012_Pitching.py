@@ -1,8 +1,8 @@
 import pandas as pd
 
-pitching_df = pd.read_csv('data/csvs/Pitching.csv')
+pitching_df = pd.read_csv('data/raw_csvs/Pitching.csv')
 
-names = pd.read_csv('data/csvs/Names.csv')
+names = pd.read_csv('data/raw_csvs/Names.csv')
 
 # calculate innings pitched because outs pitched is fucking stupid idk why they did that
 pitching_df['IP'] = pitching_df['IPouts'] / 3

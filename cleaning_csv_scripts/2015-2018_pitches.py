@@ -1,11 +1,11 @@
 import pandas as pd
 
 # Each row is an indvidual pitch
-pitches = pd.read_csv('data/csvs/pitches.csv')
+pitches = pd.read_csv('data/raw_csvs/pitches.csv')
 
-pitcher_names = pd.read_csv('data/csvs/pitch_data_names.csv')
+pitcher_names = pd.read_csv('data/raw_csvs/pitch_data_names.csv')
 
-at_bats = pd.read_csv('data/csvs/atbats.csv')
+at_bats = pd.read_csv('data/raw_csvs/atbats.csv')
 
 # change id in pitcher_names to pitcher_id
 at_bats.rename(columns={'pitcher_id': 'id'}, inplace=True)
