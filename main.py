@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
-from scripts.batting_viz import hr_scatter, scatter_matrix
-from scripts.pitching_viz import team_stat_starters
+from viz.batting_viz import hr_scatter, scatter_matrix
+from viz.pitching_viz import team_stat_starters
 
 ### EDIT TEXT USING MARKDOWN, STREAMLIT FORMATS LOOK LIKE SHIT
 
