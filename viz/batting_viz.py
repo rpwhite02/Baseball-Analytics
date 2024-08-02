@@ -8,7 +8,7 @@ def scatter_matrix(dataframe):
     
     fig = px.scatter_matrix(dataframe,
     dimensions=["BattingAvg", "OBP", "SLG", "OPS"],
-    title="Scatter Matrix of Batting Average and Fielding Percentage of Players in 2012",
+    title="Scatter Matrix of Different Offensive Stats of Individual Players in 2012",
     hover_data={'PlayerName': True},
     labels={}) 
     

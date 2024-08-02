@@ -40,7 +40,7 @@ def batting():
     st.header('Batting Data Table')
     st.write(batters)
 
-    st.header('Scatter Matrix of Batting Average and Fielding Percentage of Players in 2012')
+    st.header('Correlations Between Batting Average, On-base Percentage, Slugging, and On-base plus Slugging')
     scatter_matrix(batters)
 
     # Talk about correlations between the scatter plots
