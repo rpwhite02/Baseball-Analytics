@@ -67,13 +67,13 @@ def pitching():
 
 def pitching_predictions():
 
-    jv_fastballs = pd.read_csv('data/pitcher_csvs/verlander_FF.csv')
+    jv_fastballs = pd.read_csv('data/pitcher_csvs/verlander_pitches/verlander_FF.csv')
 
     st.header('Predicting the Outcome When Justin Verlander Throws his 4-Seam Fastball')
     jv_predictions(jv_fastballs)
 
 def main():
-    
+
     st.sidebar.title('Navigation')
     selection = st.sidebar.radio("Go to", ["Home", "Batting Analysis", "Pitching Analysis", "Pitching Outcome Predictions"])
 
