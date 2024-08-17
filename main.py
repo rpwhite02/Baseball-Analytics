@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from viz.batting_viz import hr_scatter, scatter_matrix
 from viz.pitching_viz import team_stat_starters
+from ml.ml_pitches import jv_predictions
 
 ### EDIT TEXT USING MARKDOWN, STREAMLIT FORMATS LOOK LIKE SHIT
 
@@ -64,9 +65,17 @@ def pitching():
 
 ### def fielding(): FIELDING DATA NOT SURE WHAT TO DISPLAY YET
 
+def pitching_predictions():
+
+    jv_fastballs = pd.read_csv('data/pitcher_csvs/verlander_FF.csv')
+
+    st.header('Predicting the Outcome When Justin Verlander Throws his 4-Seam Fastball')
+    jv_predictions(jv_fastballs)
+
 def main():
+    
     st.sidebar.title('Navigation')
-    selection = st.sidebar.radio("Go to", ["Home", "Batting Analysis", "Pitching Analysis"])
+    selection = st.sidebar.radio("Go to", ["Home", "Batting Analysis", "Pitching Analysis", "Pitching Outcome Predictions"])
 
     if selection == "Home":
         home()
@@ -74,6 +83,8 @@ def main():
         batting()
     elif selection == "Pitching Analysis":
         pitching()
+    elif selection == "Pitching Outcome Predictions":
+        pitching_predictions()
 
 if __name__ == "__main__":
     main()
