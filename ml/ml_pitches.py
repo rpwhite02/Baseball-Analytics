@@ -5,7 +5,9 @@ import pandas as pd
 from sklearn.model_selection import cross_val_score, train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import confusion_matrix, accuracy_score
+from sklearn.metrics import ConfusionMatrixDisplay, accuracy_score
+import matplotlib.pyplot as plt
+import streamlit as st
 
 def jv_predictions(dataframe):
 # load in data
@@ -42,9 +44,13 @@ def jv_predictions(dataframe):
     y_pred = model.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
 
+    # Create confusion matrix display
+    fig, ax = plt.subplots()
+    ConfusionMatrixDisplay.from_estimator(model, X_test, y_test, cmap="Blues", ax=ax)
+
     # print nroaml train-test results
     print('NON CV')
-    print(confusion_matrix(y_test, y_pred))
+    print(f'Confusion Matrix Display: {st.pyplot(fig)}')
     print(f'Accuracy: {accuracy:.3f}')
 
     # Print cross-validation results
