@@ -68,9 +68,29 @@ def pitching():
 def pitching_predictions():
 
     jv_fastballs = pd.read_csv('data/pitcher_csvs/verlander_pitches/verlander_FF.csv')
+    jv_sliders = pd.read_csv('data/pitcher_csvs/verlander_pitches/verlander_SL.csv')
+    jv_cu = pd.read_csv('data/pitcher_csvs/verlander_pitches/verlander_CU.csv')
+    jv_ft = pd.read_csv('data/pitcher_csvs/verlander_pitches/verlander_FT.csv')
+    jv_fc = pd.read_csv('data/pitcher_csvs/verlander_pitches/verlander_FC.csv')
+    jv_ch = pd.read_csv('data/pitcher_csvs/verlander_pitches/verlander_CH.csv')
 
-    st.header('Predicting the Outcome When Justin Verlander Throws his 4-Seam Fastball')
+    st.header('Predicting the Outcome When Justin Verlander Throws His 4-Seam Fastball')
     jv_predictions(jv_fastballs)
+
+    st.header('Predicting the Outcome When Justin Verlander Throws His Slider')
+    jv_predictions(jv_sliders)
+
+    st.header('Predicting the Outcome When Justin Verlander Throws His Changeup')
+    jv_predictions(jv_ch)
+
+    st.header('Predicting the Outcome When Justin Verlander Throws His Curveball')
+    jv_predictions(jv_cu)
+
+    st.header('Predicting the Outcome When Justin Verlander Throws His 2-Seam Fastball')
+    jv_predictions(jv_ft)
+
+    st.header('Predicting the Outcome When Justin Verlander Throws His Cutter')
+    jv_predictions(jv_fc)
 
 def main():
 

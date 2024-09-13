@@ -27,7 +27,7 @@ verlander = final_df[final_df['PlayerName'] == 'Justin Verlander']
 
 # Create separate dataframes for each of the pitcher's pitch types and export to CSV
 changeups = verlander[verlander['pitch_type'] == 'CH']
-changeups.to_csv('data/pitcher_csvs/verlander_pitches/verlander_FF.csv', index=False)
+changeups.to_csv('data/pitcher_csvs/verlander_pitches/verlander_CH.csv', index=False)
 
 curveballs = verlander[verlander['pitch_type'] == 'CU']
 curveballs.to_csv('data/pitcher_csvs/verlander_pitches/verlander_CU.csv', index=False)

@@ -49,12 +49,29 @@ def jv_predictions(dataframe):
     ConfusionMatrixDisplay.from_estimator(model, X_test, y_test, cmap="Blues", ax=ax)
 
     # print nroaml train-test results
-    print('NON CV')
-    print(f'Confusion Matrix Display: {st.pyplot(fig)}')
-    print(f'Accuracy: {accuracy:.3f}')
+    st.write('NON CV')
+    st.write('Confusion Matrix Display:')
+    st.pyplot(fig)
+    st.write(f'Accuracy: {accuracy:.3f}')
 
     # Print cross-validation results
-    print('WITH CV')
-    print(f'Cross-Validation Accuracy Scores: {cv_scores}')
-    print(f'Mean Cross-Validation Accuracy: {cv_scores.mean():.3f}')
-    print(f'Cross-Validation Standard Deviation: {cv_scores.std():.3f}')
+    st.write('WITH CV')
+    st.write('Cross-Validation Accuracy Scores:')
+    st.write(cv_scores)
+    st.write(f'Mean Cross-Validation Accuracy: {cv_scores.mean():.3f}')
+    st.write(f'Cross-Validation Standard Deviation: {cv_scores.std():.3f}')
+
+# jv_ff = pd.read_csv('data/pitcher_csvs/verlander_pitches/verlander_FF.csv') 
+# jv_sl = pd.read_csv('data/pitcher_csvs/verlander_pitches/verlander_SL.csv') 
+# jv_cu = pd.read_csv('data/pitcher_csvs/verlander_pitches/verlander_CU.csv') 
+# jv_fc = pd.read_csv('data/pitcher_csvs/verlander_pitches/verlander_FC.csv') 
+# jv_ft = pd.read_csv('data/pitcher_csvs/verlander_pitches/verlander_FT.csv') 
+# jv_ch = pd.read_csv('data/pitcher_csvs/verlander_pitches/verlander_CH.csv')
+# jv_predictions(jv_ch)
+
+# FF with 3 folds is 0.327 CV, 0.350 without CV. FF with 5 folds is 0.328 CV, 0.350 without CV
+# SL with 3 folds is 0.324 CV, 0.319 without CV. SL with 5 folds is 0.328 CV, 0.319 withotu CV
+# CU with 3 folds is 0.334 CV, 0.335 without CV. CU with 5 folds is 0.322 CV, 0.335 without CV
+# FC with 3 folds is 0.265 CV, 0.429 without CV. FC with 5 folds is 0.210 CV, 0.429 without CV (SMALL SAMPLE)
+# FT with 3 folds is 0.167 CV, 0.667 without CV. FT with 2 folds is 0.333 CV, 0.667 without CV (SMALL SAMPLE)
+# CH with 3 folds is 0.255 CV, 0.284 without CV. CH with 5 folds is 0.270 CV, 0.284 without CV
