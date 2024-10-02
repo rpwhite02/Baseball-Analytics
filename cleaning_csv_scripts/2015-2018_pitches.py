@@ -22,6 +22,10 @@ final_df = final_df[['PlayerName', 'break_angle', 'break_length', 'code', 'nasty
 # Change batter stance from L and R to left and right
 final_df['stand'] = final_df['stand'].replace({'L': 'left', 'R': 'right'})
 
+# Include codes only for swinging strike (S), called strike (C), ball (B), ball in play and no out (D), ball in play and out (X)
+codes_to_keep = ['S', 'C', 'B', 'D', 'X']
+final_df = final_df[final_df['code'].isin(codes_to_keep)]
+
 # Filter the dataframe to only include specific pitchers
 verlander = final_df[final_df['PlayerName'] == 'Justin Verlander']
 

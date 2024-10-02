@@ -2,10 +2,11 @@
 ### NEURAL NETWORKS TO PREDICT PITCH SEQUENCING
 
 import pandas as pd
-from sklearn.model_selection import cross_val_score, train_test_split
+from sklearn.model_selection import cross_val_score, train_test_split, StratifiedKFold
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import ConfusionMatrixDisplay, accuracy_score
+from sklearn.metrics import ConfusionMatrixDisplay, accuracy_score, classification_report
+from sklearn.pipeline import Pipeline
 import matplotlib.pyplot as plt
 import streamlit as st
 
@@ -26,48 +27,60 @@ def jv_predictions(dataframe):
     # split the data into train and test, test size is 20%
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-    # standardize the features
-    scaler = StandardScaler()
-    X = scaler.fit_transform(X)
-    X_train = scaler.fit_transform(X_train)
-    X_test = scaler.transform(X_test)
+    # Create pipeline with model and its parameters and include scaler
+    pipeline = Pipeline([
+        ('scaler', StandardScaler()),
+        ('model', LogisticRegression(
+            multi_class='multinomial', solver='lbfgs', max_iter=1000)
+        )
+    ])
 
-    # initialize and train model
-    model = LogisticRegression(multi_class='multinomial', solver='lbfgs', max_iter=1000)
-    model_cv = LogisticRegression(multi_class='multinomial', solver='lbfgs', max_iter=1000)
-    model.fit(X_train, y_train)
+    # Fit pipeline on training data
+    pipeline.fit(X_train, y_train)
 
-    # predict outcomes on test set using cross validation
-    cv_scores = cross_val_score(model_cv, X, y, cv=5, scoring='accuracy')
+    # Predict outcomes on the Test X
+    y_pred = pipeline.predict(X_test)
 
-    # predict outcomes on test set using normal train/test no cross validation
-    y_pred = model.predict(X_test)
+    # Evaluate the model
     accuracy = accuracy_score(y_test, y_pred)
+    print(f'Accuracy on the Test Set: {accuracy:.3f}')
+
+    # Classification report with precision and recall
+    print('Classification Report on Test Set:')
+    print(classification_report(y_test, y_pred))
 
     # Create confusion matrix display
     fig, ax = plt.subplots()
-    ConfusionMatrixDisplay.from_estimator(model, X_test, y_test, cmap="Blues", ax=ax)
+    ConfusionMatrixDisplay.from_estimator(pipeline, X_test, y_test, cmap="Blues", ax=ax)
+
+    # Perform cross-validation with the pipeline
+    skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+    cv_scores = cross_val_score(pipeline, X, y, cv=skf, scoring='accuracy')
 
     # print nroaml train-test results
-    st.write('NON CV')
-    st.write('Confusion Matrix Display:')
-    st.pyplot(fig)
-    st.write(f'Accuracy: {accuracy:.3f}')
+    plt.show()
+    # st.write('NON CV')
+    # st.write('Confusion Matrix Display:')
+    # st.pyplot(fig)
+    # st.write(f'Accuracy: {accuracy:.3f}')
 
     # Print cross-validation results
-    st.write('WITH CV')
-    st.write('Cross-Validation Accuracy Scores:')
-    st.write(cv_scores)
-    st.write(f'Mean Cross-Validation Accuracy: {cv_scores.mean():.3f}')
-    st.write(f'Cross-Validation Standard Deviation: {cv_scores.std():.3f}')
+    print('Cross-Validation Accuracy Scores:', cv_scores)
+    print(f'Mean Cross-Validation Accuracy: {cv_scores.mean():.3f}')
+    print(f'Cross-Validation Standard Deviation: {cv_scores.std():.3f}')
+    # st.write('WITH CV')
+    # st.write('Cross-Validation Accuracy Scores:')
+    # st.write(cv_scores)
+    # st.write(f'Mean Cross-Validation Accuracy: {cv_scores.mean():.3f}')
+    # st.write(f'Cross-Validation Standard Deviation: {cv_scores.std():.3f}')
 
-# jv_ff = pd.read_csv('data/pitcher_csvs/verlander_pitches/verlander_FF.csv') 
+jv_ff = pd.read_csv('data/pitcher_csvs/verlander_pitches/verlander_FF.csv') 
 # jv_sl = pd.read_csv('data/pitcher_csvs/verlander_pitches/verlander_SL.csv') 
 # jv_cu = pd.read_csv('data/pitcher_csvs/verlander_pitches/verlander_CU.csv') 
 # jv_fc = pd.read_csv('data/pitcher_csvs/verlander_pitches/verlander_FC.csv') 
 # jv_ft = pd.read_csv('data/pitcher_csvs/verlander_pitches/verlander_FT.csv') 
 # jv_ch = pd.read_csv('data/pitcher_csvs/verlander_pitches/verlander_CH.csv')
-# jv_predictions(jv_ch)
+jv_predictions(jv_ff)
 
 # FF with 3 folds is 0.327 CV, 0.350 without CV. FF with 5 folds is 0.328 CV, 0.350 without CV
 # SL with 3 folds is 0.324 CV, 0.319 without CV. SL with 5 folds is 0.328 CV, 0.319 withotu CV
